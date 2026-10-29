@@ -90,6 +90,8 @@ let TimerInterval = setInterval(function(){
 // STEP 13: Create a variable to track whether the timer is
 //          currently running (let running = true;)
 let running = true;
+let accumulatedTime = 0;
+let lastStartTime = startTime;
 // STEP 14: Add a click event listener to the button (ID "myBtn").
 //          Inside the listener:
 //          a) If running is true:
@@ -102,12 +104,17 @@ let running = true;
 //             - Change button innerHTML to "Stop"
 //             - Set running to true
 document.getElementById("myBtn").addEventListener("click", function(){
+    let nowTime = new Date().getTime();
+
     if (running){
         clearInterval(TimerInterval);
+        accumulatedTime += (nowTime- lastStartTime);
+
         document.getElementById("myBtn").innerHTML = "Start";
         running = false;
     } else {
-        startTime = new Date().getTime();
+        lastStartTime = new Date().getTime();
+        
         TimerInterval = setInterval (function(){
             let currentTime = newDate.TimeInterval();
             let elapsedSeconds = (currentTime - startTime) / 1000;
