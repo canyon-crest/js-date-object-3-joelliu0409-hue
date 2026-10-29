@@ -113,10 +113,10 @@ document.getElementById("myBtn").addEventListener("click", function(){
         document.getElementById("myBtn").innerHTML = "Start";
         running = false;
     } else {
-        lastStartTime = new Date().getTime();
-        
+        startTime = new Date().getTime();
+
         TimerInterval = setInterval (function(){
-            let currentTime = newDate.TimeInterval();
+            let currentTime = new Date().getTime();
             let elapsedSeconds = (currentTime - startTime) / 1000;
             document.getElementById("myTimer").innerHTML = elapsedSeconds.toFixed(3);
         }, 10);
