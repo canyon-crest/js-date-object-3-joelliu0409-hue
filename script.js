@@ -108,8 +108,8 @@ document.getElementById("myBtn").addEventListener("click", function(){
         running = false;
     } else {
         startTime = new Date().getTime();
-        timerInterval = setInterval (function(){
-            let currentTime = newDate.TimerInterval();
+        TimerInterval = setInterval (function(){
+            let currentTime = newDate.TimeInterval();
             let elapsedSeconds = (currentTime - startTime) / 1000;
             document.getElementById("myTimer").innerHTML = elapsedSeconds.toFixed(3);
         }, 10);
